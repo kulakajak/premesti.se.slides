@@ -1,0 +1,184 @@
+<!--
+Google IO 2012/2013 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Премести се</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="title-slide segue nobackground">
+  <aside class="gdbar">ТРК ИНОВАЦИЈЕ<br><small style='font-size: 0.8em'>Ако идеш брже време тече спорије</small></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Наш Тим</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>програмер: Душан Орловић</li>
+        <li>дизајнер: Слободан Којадиновић </li>
+        <li>мама: Јасмина Орловић</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Премести.се</h2>
+    </hgroup>
+    <article>
+      <p>
+     интернет страница која омогућава лакше налажење замене места у вртићима и састоји се од:
+      </p>
+      <ul class='build'>
+       <li>графичке базе</li><li>интернет странице</li><li>имејл комуникације</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Графичка база</h2>
+    </hgroup>
+    <article>
+      <p>
+        Она нам омогућава да повежемо податке о траженим местима (установа и годиште) и пронађемо поклапања произвољне дужине.
+        Ротација може да се изврши између два (А-Б и Б-А) или више чланова (А-Б, Б-В, В-Г, Г-Д, Д-А).
+      </p>
+      <pre class="prettyprint" data-lang="sql">
+MATCH (n) RETURN n
+MATCH (n:Move), (g:Group), (u:User) RETURN n,g,u
+</pre>
+    </article>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/graph_resized.png)">
+    <footer class="source black">
+        <a href="https://dashboard.heroku.com/apps/premesti-se/resources">Пример уживо</a>
+        <a href="http://localhost:7042/browser/">Пример локално</a>
+    </footer>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Интернет страница</h2>
+    </hgroup>
+    <article>
+      <p>
+        служи за унос тренутне установе, годишта и жељених локација.
+      </p>
+      <ul class='build'>
+        <li>
+          Избор може да се врши и на мапи.
+        </li>
+        <li>
+          Бирање периода када је дете рођено тако да преласком у наредну годину нема потребе да родитељи мењају групе (нпр на пролеће тражим премештај у средњој групи, а кад дође јесен онда је то старија група)
+        </li>
+        <li>
+          Одклоњена је недоумица у прелазном периоду (током летњих месеци) када родитељи не знају у којој групи треба да траже премештај (предходна или наредна сезона)
+        </li>
+      </ul>
+      </p>
+    </article>
+  </slide>
+
+
+  <slide class="fill nobackground" style="background-image: url(images/map.png)">
+    <footer class="source black">
+        <a href="http://www.premesti.se/">Пример уживо</a>
+    </footer>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/mrvica.png)">
+    <footer class="source black">
+      <a
+        href="http://www.premesti.se/my-move/e26b610a-119d-464a-8c80-fabd297c82c2/%D0%9C%D1%80%D0%B2%D0%B8%D1%86%D0%B0%204%20%D0%B3%D0%BE%D0%B4(%E2%86%AA%20%D0%9B%D0%B0%D0%BD%D0%B5,%D0%A8%D0%B2%D1%80%D1%9B%D0%B0,%D0%94%D1%83%D0%BD%D0%B0%D0%B2%D1%81%D0%BA%D0%B8%20%D1%86%D0%B2%D0%B5%D1%82)">Пример уживо</a>
+    </footer>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Имејл и чет комуникација</h2>
+    </hgroup>
+    <article>
+      <p>
+        Користећи наш систем комуникације родитељи могу сами да изаберу да ли желе да поделе са другима свој идентитет, телефон или имејл адресу.
+      </p>
+      <ul class='build'>
+        <li>
+          Комуникација преко наше странице омогућава анонимно дописивање (chat)
+        </li>
+        <li>
+          Поруке и корисници које нису у складу са применом могу да се означе као непожељне
+        </li>
+        <li>
+          Приход од реклама пошто свака нова порука мора да се прочита на нашој страници
+        </li>
+    </article>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/chat.png)">
+    <footer class="source black">
+        <a href="http://www.premesti.se/chats/3a379bf8-1edd-49d7-b65d-aa005415c41b">Пример уживо</a>
+    </footer>
+  </slide>
+
+  <slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <h2>Хвала на пажњи</h2>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
